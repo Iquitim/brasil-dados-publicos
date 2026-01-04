@@ -152,6 +152,9 @@ ingestao_dados/
 │       ├── cnefe.py            # Endereços geocodificados (Censo 2022)
 │       ├── setor_renda.py      # Renda por setor censitário
 │       └── ipca.py             # Índice de inflação (BCB)
+│   └── saude/
+│       ├── cid10.py            # CID-10 (Classificação de Doenças)
+
 ├── scripts/
 │   ├── setup_project.py   # 🔧 Configuração inicial
 │   ├── clean_cache.py     # 🧹 Limpeza de cache
@@ -172,6 +175,7 @@ ingestao_dados/
 |-------|--------|--------|--------|-----------|
 | **Internações (SIH-SUS)** | DATASUS FTP | `saude.internacoes` | ~3M/ano (SP) | Todas as internações hospitalares do SUS |
 | **Estabelecimentos (CNES)** | DATASUS FTP | `saude.estabelecimentos` | ~100K/mês (SP) | Hospitais, UBS, clínicas, laboratórios |
+| **CID-10** | OMS/DATASUS | `saude.cid10` | ~12K códigos | Classificação Internacional de Doenças |
 
 ### Dados Geográficos
 
@@ -199,6 +203,7 @@ erDiagram
     INTERNACOES ||--o{ CEP_GEOCODIFICADO : "cep_paciente"
     CEP_GEOCODIFICADO ||--o{ SETOR_RENDA : "codigo_setor_base"
     INTERNACOES ||--o{ ESTABELECIMENTOS : "codigo_estabelecimento"
+    INTERNACOES ||--o{ CID10 : "diagnostico_principal"
     CEP_GEOCODIFICADO ||--o{ MUNICIPIOS : "codigo_municipio"
 
     INTERNACOES {
@@ -364,11 +369,12 @@ python manage.py --sources municipios --target csv
 O `manage.py` executa os pipelines na ordem correta de dependências:
 
 1. `ipca` - Índices econômicos (lookup)
-2. `municipios` - Municípios brasileiros (para nomes no CNEFE)
-3. `estabelecimentos` - Estabelecimentos de saúde
-4. `internacoes` - Internações hospitalares
-5. `censo_renda` - Renda por setor censitário
-6. `cnefe` - Endereços geocodificados
+2. `cid10` - Classificação Internacional de Doenças (lookup)
+3. `municipios` - Municípios brasileiros (para nomes no CNEFE)
+4. `estabelecimentos` - Estabelecimentos de saúde
+5. `internacoes` - Internações hospitalares
+6. `censo_renda` - Renda por setor censitário
+7. `cnefe` - Endereços geocodificados
 
 ### Exemplo de Saída
 

@@ -30,6 +30,7 @@ ETL_MODULES = {
     "censo_renda": ("etl.comum.setor_renda", "baixar_e_processar_censo"),
     "ipca": ("etl.comum.ipca", "carregar_ipca"),
     "municipios": ("etl.comum.municipios", "carregar_municipios"),
+    "cid10": ("etl.saude.cid10", "carregar_cid10"),
 }
 
 
@@ -72,7 +73,8 @@ def main():
     sources_to_run = []
     if "all" in args.sources:
         # Ordem de execução sugerida (municipios antes do cnefe para garantir tabela de lookup)
-        sources_to_run = ["ipca", "municipios", "estabelecimentos", "internacoes", "censo_renda", "cnefe"]
+        # cid10 e ipca são lookups rápidos, podem rodar no início
+        sources_to_run = ["ipca", "cid10", "municipios", "estabelecimentos", "internacoes", "censo_renda", "cnefe"]
     else:
         sources_to_run = args.sources
     
