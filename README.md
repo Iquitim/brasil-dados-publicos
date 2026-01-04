@@ -134,10 +134,6 @@ flowchart TB
     MANAGE --> ETL
     ETL --> PG
     ETL --> CSV
-
-    style MANAGE fill:#fff9c4,stroke:#fbc02d
-    style PG fill:#c8e6c9,stroke:#43a047
-    style CSV fill:#bbdefb,stroke:#1976d2
 ```
 
 ### Estrutura de Diretórios
