@@ -1,0 +1,34 @@
+{
+    "salarios_minimos": {
+        "2010": 510.00,
+        "2022": 1212.00,
+        "atual": 1412.00
+    },
+    "classes": [
+        {
+            "classe": "E",
+            "nome": "Extrema pobreza",
+            "limite_superior_sm": 0.25
+        },
+        {
+            "classe": "D",
+            "nome": "Baixa renda",
+            "limite_superior_sm": 0.5
+        },
+        {
+            "classe": "C",
+            "nome": "Classe média baixa",
+            "limite_superior_sm": 1.0
+        },
+        {
+            "classe": "B",
+            "nome": "Classe média",
+            "limite_superior_sm": 2.0
+        },
+        {
+            "classe": "A",
+            "nome": "Alta renda",
+            "limite_superior_sm": null
+        }
+    ]
+}

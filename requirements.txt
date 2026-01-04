@@ -1,0 +1,25 @@
+# Ingestão de Dados SUS - Dependências
+# =====================================
+# Instale com: pip install -r requirements.txt
+
+# Conexão com banco de dados
+psycopg2-binary>=2.9.9
+
+# Manipulação de dados
+pandas>=2.0.0
+pyarrow>=14.0.0
+
+# Acesso ao DATASUS via FTP (biblioteca FIOCRUZ)
+pysus>=0.13.0
+
+# Barra de progresso (versão gerenciada pelo pysus)
+tqdm
+
+# Requisições HTTP (para IPCA do BCB)
+requests>=2.31.0
+
+# Retry com backoff exponencial (para instabilidade de rede)
+tenacity>=8.2.0
+
+# Carregar variáveis de ambiente do arquivo .env
+python-dotenv>=1.0.0
