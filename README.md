@@ -240,6 +240,11 @@ erDiagram
         text tipo_estabelecimento
     }
 
+    CID10 {
+        varchar10 codigo PK
+        text descricao
+    }
+
     MUNICIPIOS {
         varchar7 codigo_ibge PK
         text municipio
