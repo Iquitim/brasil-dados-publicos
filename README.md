@@ -354,6 +354,9 @@ python manage.py --sources ipca municipios cnefe
 
 # Exportar para CSV (sem banco de dados)
 python manage.py --target csv
+
+# Exportar apenas uma fonte para CSV (exemplo: só municípios)
+python manage.py --sources municipios --target csv
 ```
 
 ### Ordem de Execução (Automática)
