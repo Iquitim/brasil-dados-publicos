@@ -115,6 +115,7 @@ flowchart TB
         subgraph SAUDE["Saúde"]
             INT["internacoes.py"]
             EST["estabelecimentos.py"]
+            CID["cid10.py"]
         end
         subgraph COMUM["Comum"]
             MUN["municipios.py"]
@@ -146,14 +147,13 @@ ingestao_dados/
 ├── etl/
 │   ├── saude/
 │   │   ├── internacoes.py      # Internações hospitalares (SIH-SUS)
-│   │   └── estabelecimentos.py # Estabelecimentos de saúde (CNES)
+│   │   ├── estabelecimentos.py # Estabelecimentos de saúde (CNES)
+│   │   └── cid10.py            # CID-10 (Classificação de Doenças)
 │   └── comum/
 │       ├── municipios.py       # Municípios brasileiros (API IBGE)
 │       ├── cnefe.py            # Endereços geocodificados (Censo 2022)
 │       ├── setor_renda.py      # Renda por setor censitário
 │       └── ipca.py             # Índice de inflação (BCB)
-│   └── saude/
-│       ├── cid10.py            # CID-10 (Classificação de Doenças)
 
 ├── scripts/
 │   ├── setup_project.py   # 🔧 Configuração inicial
